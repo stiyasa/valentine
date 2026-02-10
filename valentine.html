@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Valentine 💖</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(180deg, #ffe6ea, #ffd6e0);
+  margin-top: 80px;
+  overflow: hidden;
+}
+
+h1 {
+  color: #d6336c;
+  padding: 0 20px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ff4d6d; }
+  to { text-shadow: 0 0 20px #ff99aa; }
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#yesBtn { background: #ff4d6d; color: white; }
+#noBtn { background: #ccc; }
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  color: #ff4d6d;
+  font-size: 22px;
+  animation: floatUp 4s linear forwards;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-600px); opacity: 0; }
+}
+
+/* Popup */
+#popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.2);
+  transition: 0.4s;
+  max-width: 300px;
+}
+
+#popup.show {
+  transform: translate(-50%, -50%) scale(1);
+}
+</style>
+</head>
+
+<body>
+
+<h1>
+From every city to every sunset, my favorite place is always with you 💖  
+Will you be my Valentine?
+</h1>
+
+<button id="yesBtn" onclick="sayYes()">Yes 😍</button>
+<button id="noBtn" onmouseover="moveNo()">No 🙈</button>
+
+<p id="message" style="font-size:20px; color:#d6336c;"></p>
+
+<!-- 💌 Magical Popup -->
+<div id="popup">
+  <h2>💖 My Love 💖</h2>
+  <p>
+  From our first journey to every sunset we shared,  
+  you became my favorite place in this world 🌍  
+  Forever you & me ❤️
+  </p>
+</div>
+
+<script>
+
+function sayYes() {
+  document.getElementById("message").innerHTML =
+    "✨ Magic unlocked ✨ Forever my Valentine ❤️";
+
+  explodeHearts();     // Big burst
+  showPopup();         // Love letter popup
+}
+
+function moveNo() {
+  let btn = document.getElementById("noBtn");
+  btn.style.position = "absolute";
+  btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+  btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+}
+
+/* Continuous floating hearts */
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.style.top = window.innerHeight + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 4000);
+}, 400);
+
+/* Big explosion */
+function explodeHearts() {
+  for (let i = 0; i < 40; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = Math.random() * window.innerHeight + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 4000);
+  }
+}
+
+/* Popup */
+function showPopup() {
+  document.getElementById("popup").classList.add("show");
+}
+
+</script>
+
+</body>
+</html>
