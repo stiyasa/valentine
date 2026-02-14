@@ -8,13 +8,15 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background: url('photo.jpg') no-repeat center center fixed;
-  background-size: cover;
   margin-top: 80px;
   overflow: hidden;
+
+  /* 🖼️ YOUR BACKGROUND PHOTO */
+  background: url('photo.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
-/* Soft romantic overlay so text is readable */
+/* Soft romantic overlay for readability */
 body::before {
   content: "";
   position: fixed;
@@ -25,7 +27,6 @@ body::before {
   background: rgba(255, 230, 234, 0.65);
   z-index: -1;
 }
-
 
 h1 {
   color: #d6336c;
@@ -101,7 +102,8 @@ Can I be your favorite love story forever? 💕
   <p>
   From our first journey to every sunset we shared,  
   you became my favorite place in this world 🌍  
-  Forever you & me ❤️ Happy Valentine’s Day Hubby ❤️
+  Forever you & me ❤️  
+  Happy Valentine’s Day Hubby 💕
   </p>
 </div>
 
@@ -109,10 +111,10 @@ Can I be your favorite love story forever? 💕
 
 function sayYes() {
   document.getElementById("message").innerHTML =
-    "✨ Magic unlocked ✨";
+    "✨ Magic unlocked ✨ Forever my Valentine ❤️";
 
-  explodeHearts();     // Big burst
-  showPopup();         // Love letter popup
+  explodeHearts();
+  showPopup();
 }
 
 function moveNo() {
